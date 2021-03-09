@@ -461,7 +461,7 @@ bool readSrcFile(char *filename,uint8 *&img,int &width,int &height, int &expande
 	// Delete temp file if it exists.
 	if(fileExist("tmp.ppm"))
 	{
-		sprintf(str, "del tmp.ppm\n");
+		sprintf(str, "rm -f tmp.ppm\n");
 		system(str);
 	}
 
@@ -495,7 +495,7 @@ bool readSrcFile(char *filename,uint8 *&img,int &width,int &height, int &expande
 	{
 		width=w1;
 		height=h1;
-		system("del tmp.ppm");
+		system("rm -f tmp.ppm");
 
 		// Width must be divisible by 4 and height must be
 		// divisible by 4. Otherwise, we will expand the image
@@ -559,7 +559,7 @@ bool readSrcFileNoExpand(char *filename,uint8 *&img,int &width,int &height)
 	// Delete temp file if it exists.
 	if(fileExist("tmp.ppm"))
 	{
-		sprintf(str, "del tmp.ppm\n");
+		sprintf(str, "rm -f tmp.ppm\n");
 		system(str);
 	}
 
@@ -591,7 +591,7 @@ bool readSrcFileNoExpand(char *filename,uint8 *&img,int &width,int &height)
 	{
 		width=w1;
 		height=h1;
-		system("del tmp.ppm");
+		system("rm -f tmp.ppm");
 
 		return true;
 	}
@@ -9472,7 +9472,7 @@ void writeOutputFile(char *dstfile, uint8* img, uint8* alphaimg, int width, int 
 	// Delete destination file if it exists
 	if(fileExist(dstfile))
 	{
-		sprintf(str, "del %s\n",dstfile);	
+		sprintf(str, "rm -f %s\n",dstfile);	
 		system(str);
 	}
 
